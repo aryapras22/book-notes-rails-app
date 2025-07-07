@@ -1,12 +1,5 @@
 <% content_for :title, "My Notes" %>
 <div class="notes-container">
-  <div class="index-header">
-    <h1>My Notes</h1>
-    <div class="index-links">
-      <%= link_to "All Books", books_path, class: "button button-primary" %>
-      <%= link_to "New Note", new_note_path, class: "button button-primary" %>
-    </div>
-  </div>
   <div class="notes-grid">
     <% @notes.each do |note| %>
       <%= link_to note, class: "note-card" do %>

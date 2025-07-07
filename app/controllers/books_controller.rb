@@ -1,9 +1,11 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!
+  load_and_authorize_resource
   before_action :set_book, only: %i[ show edit update destroy ]
 
   # GET /books or /books.json
   def index
-    @books = Book.all
+  @notes = Note.accessible_by(current_ability).includes(:book).order(created_at: :desc)
   end
 
   # GET /books/1 or /books/1.json

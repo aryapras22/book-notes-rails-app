@@ -18,6 +18,28 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
+    <nav class="main-navbar">
+      <div class="nav-links">
+        <%= link_to "Book Notes", root_path, class: "navbar-brand" %>
+      </div>
+      <div class="nav-actions">
+        <% if user_signed_in?%>
+          <% if can? :manage, Book %>
+            <%= link_to "Add New Book", new_book_path, class: "button button-secondary" %>
+          <% end %>
+          <%= link_to "New Note", new_note_path, class: "button button-primary" %>
+        <% end %>
+        <div class="nav-user-session">
+          <% if user_signed_in? %>
+            <span class="user-greeting">Welcome, <%= current_user.email %></span>
+            <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "button-link-danger" %>
+          <% else %>
+            <%= link_to "Sign In", new_user_session_path, class: "button-link" %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "button button-secondary" %>
+          <% end %>
+        </div>
+      </div>
+    </nav>
     <% if notice %>
       <p class="flash-notice"><%= notice %></p>
     <% end %>

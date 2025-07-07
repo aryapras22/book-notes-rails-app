@@ -1,4 +1,6 @@
 class NotesController < ApplicationController
+  before_action :authenticate_user!
+  load_and_authorize_resource
   before_action :set_note, only: %i[ show edit update destroy ]
 
   # GET /notes or /notes.json
@@ -22,7 +24,7 @@ class NotesController < ApplicationController
   # POST /notes or /notes.json
   def create
     @note = Note.new(note_params)
-
+    @note.user = current_user
     respond_to do |format|
       if @note.save
         format.html { redirect_to @note, notice: "Note was successfully created." }
@@ -65,6 +67,6 @@ class NotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def note_params
-      params.expect(note: [ :book_id, :content, :title ])
+      params.expect(note: [ :book_id, :content, :title, :user_id ])
     end
 end
