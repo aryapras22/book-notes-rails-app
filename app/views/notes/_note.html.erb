@@ -1,0 +1,9 @@
+<article class="note">
+  <h1 class="note-title"><%= note.title %></h1>
+  <div class="note-metadata">
+    <span>Last updated <%= time_ago_in_words(note.updated_at) %> ago</span>
+  </div>
+  <div class="note-content trix-content">
+    <%= note.content %>
+  </div>
+</article>

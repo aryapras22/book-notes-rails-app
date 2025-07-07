@@ -1,0 +1,76 @@
+<% content_for :title, "Editing book" %>
+<div class="page-header">
+  <h1>Edit Book</h1>
+  <p class="page-subtitle">Update the details of "<%= @book.title %>"</p>
+</div>
+<%= render "form", book: @book %>
+<div class="page-actions">
+  <%= link_to "View Book", @book, class: "btn btn-primary" %>
+  <%= link_to "Back to books", books_path, class: "btn btn-outline" %>
+</div>
+<style>
+  .page-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .page-header h1 {
+    color: #1f2937;
+    font-size: 2rem;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .page-subtitle {
+    color: #6b7280;
+    font-size: 1.125rem;
+    margin: 0;
+  }
+
+  .page-actions {
+    text-align: center;
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary {
+    background: #3b82f6;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: #2563eb;
+  }
+
+  .btn-outline {
+    background: white;
+    color: #374151;
+    border: 1px solid #d1d5db;
+  }
+
+  .btn-outline:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+  }
+
+  @media (max-width: 640px) {
+    .page-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>

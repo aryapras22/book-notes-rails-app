@@ -1,0 +1,13 @@
+<%# Use the note's title for a more descriptive page title %>
+<% title = @note.title.present? ? @note.title : "Note ##{@note.id}" %>
+<% content_for :title, "Editing #{title}" %>
+<div class="notes-container">
+  <header class="page-header">
+    <h1>Editing "<%= title %>"</h1>
+  </header>
+  <%= render "form", note: @note %>
+  <div class="page-footer-links">
+    <%= link_to "Show this note", @note %> |
+    <%= link_to "Back to all notes", notes_path %>
+  </div>
+</div>

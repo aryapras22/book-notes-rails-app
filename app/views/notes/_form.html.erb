@@ -1,0 +1,38 @@
+<div class="notes-container">
+  <%= form_with(model: note, class: "note-form") do |form| %>
+    <% if note.errors.any? %>
+      <div class="error-summary">
+        <h2><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h2>
+        <ul>
+          <% note.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="form-field">
+      <%= form.label :title, class: "form-label" %>
+      <%= form.text_field :title, class: "form-input" %>
+    </div>
+    <div class="form-field">
+      <%= form.label :book, class: "form-label" %>
+      <%= form.collection_select :book_id, Book.order(:title), :id, :title, 
+      { 
+        prompt: "📚 Select a book...", 
+        selected: params[:book_id] || @note.book_id,
+      }, 
+      { 
+        class: "form-select form-select-styled",
+        data: { placeholder: "Choose your book" }
+      } %>
+    </div>
+    <div class="form-field">
+      <%= form.label :content, class: "form-label" %>
+      <%= form.rich_text_area :content %>
+    </div>
+    <div class="form-actions">
+      <%= form.submit "Save Note", class: "button button-primary" %>
+      <%= link_to "Back to notes", notes_path, class: "button button-secondary" %>
+    </div>
+  <% end %>
+</div>

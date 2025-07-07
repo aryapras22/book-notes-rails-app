@@ -1,0 +1,274 @@
+/* === General Layout & Typography === */
+.notes-container {
+  max-width: 900px; /* Wider for index view */
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #111827;
+}
+
+/* === Index Page === */
+.index-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 1rem;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.note-card {
+  display: block;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.07);
+}
+
+.note-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.note-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem 0;
+  color: #1f2937;
+}
+
+.note-card-content {
+  font-size: 1rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.notes-empty-state {
+  margin-top: 3rem;
+  text-align: center;
+  background-color: #f9fafb;
+  padding: 3rem;
+  border-radius: 0.5rem;
+}
+
+.notes-empty-state h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+/* === Form Pages (New/Edit) === */
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.note-form .form-field {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #374151;
+}
+
+.form-input {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.form-input:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px #c7d2fe;
+}
+
+.page-footer-links {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+  font-size: 0.9rem;
+}
+
+.page-footer-links a {
+  color: #4f46e5;
+  text-decoration: none;
+}
+.page-footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* === Re-usable Components (Buttons, Errors) === */
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.button {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.65rem 1.25rem;
+  border-radius: 0.375rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.button-primary {
+  background-color: #4f46e5;
+  color: white;
+  border-color: #4f46e5;
+}
+
+.button-primary:hover {
+  background-color: #4338ca;
+}
+
+.error-summary {
+  background-color: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  border-radius: 0.375rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.error-summary h2 {
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.error-summary ul {
+  list-style-position: inside;
+  padding-left: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.form-select-styled {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: all 0.2s ease;
+  min-width: 200px;
+}
+
+.form-select-styled:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-select-styled:hover {
+  border-color: #9ca3af;
+}
+
+/* Header for action links */
+.page-actions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.index-links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.button-link {
+  font-weight: 500;
+  color: #4f46e5;
+  text-decoration: none;
+}
+
+.button-link:hover {
+  text-decoration: underline;
+}
+
+/* Note Display Article */
+.note {
+  background-color: #ffffff;
+  padding: 1rem 0;
+}
+
+.note-title {
+  font-size: 2.5em; /* 40px */
+  font-weight: bold;
+  color: #111827;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.note-metadata {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Styles the rich text content from ActionText */
+.note-content {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.7;
+  color: #374151;
+}
+
+/* Footer for destructive actions */
+.page-actions-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed #d1d5db;
+}
+
+.page-actions-footer p {
+  font-weight: bold;
+  color: #991b1b; /* Dark Red */
+  margin-bottom: 0.5rem;
+}
+
+/* === New Button Style for Destructive Actions === */
+.button-danger {
+  background-color: #dc2626; /* Red */
+  color: white;
+  border-color: #dc2626;
+}
+
+.button-danger:hover {
+  background-color: #b91c1c; /* Darker Red */
+}
