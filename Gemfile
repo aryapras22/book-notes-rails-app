@@ -66,9 +66,9 @@ gem "devise", "~> 4.9"
 
 gem "cancancan", "~> 3.6"
 
-gem "tailwindcss-rails", "~> 4.3"
+# gem "tailwindcss-rails", "~> 4.3"
 
-gem "tailwindcss-ruby", "~> 4.1"
+# gem "tailwindcss-ruby", "~> 4.1"
 
 group :production do
   gem "pg"
